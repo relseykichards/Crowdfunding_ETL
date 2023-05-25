@@ -5,9 +5,9 @@
 
 CREATE TABLE "Contact" (
     "contact_id" int   NOT NULL,
-    "first_name" string   NOT NULL,
-    "last_name" string   NOT NULL,
-    "email" string   NOT NULL,
+    "first_name" text   NOT NULL,
+    "last_name" text   NOT NULL,
+    "email" text   NOT NULL,
     CONSTRAINT "pk_Contact" PRIMARY KEY (
         "contact_id"
      )
@@ -23,7 +23,7 @@ CREATE TABLE "Category" (
 
 CREATE TABLE "Subcategory" (
     "subcategory_id" int   NOT NULL,
-    "subcategory" string   NOT NULL,
+    "subcategory" text   NOT NULL,
     CONSTRAINT "pk_Subcategory" PRIMARY KEY (
         "subcategory_id"
      )
@@ -32,15 +32,15 @@ CREATE TABLE "Subcategory" (
 CREATE TABLE "Campaign" (
     "cf_id" int   NOT NULL,
     "contact_id" int   NOT NULL,
-    "company_name" string   NOT NULL,
-    "description" string   NOT NULL,
+    "company_name" text   NOT NULL,
+    "description" text   NOT NULL,
     "goal" float   NOT NULL,
     "pledged" float   NOT NULL,
     "backers_count" int   NOT NULL,
-    "country" string   NOT NULL,
-    "currency" string   NOT NULL,
-    "launch_date" datetime   NOT NULL,
-    "end_date" datetime   NOT NULL,
+    "country" text   NOT NULL,
+    "currency" text   NOT NULL,
+    "launch_date" date   NOT NULL,
+    "end_date" date   NOT NULL,
     "category_id" int   NOT NULL,
     "subcategory_id" int   NOT NULL,
     CONSTRAINT "pk_Campaign" PRIMARY KEY (
