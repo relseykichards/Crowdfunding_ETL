@@ -3,7 +3,7 @@ Project 2 - Extract, Transform, Load
 
 This project has been completed by Kelsey Richards and Chase Reynolds. 
 
-In this repository, you will find the 'ELT_Mini_Project_KRichards_CReynolds.ipynb' file containing the Python code to extract and transform the raw Excel files into useable DataFrames (see Resouces folder). To complete these tasks, we broke up the requirements into DataFrame deliverables: Categories, Subcategories, Campaigns, and Contacts - which later became our tables in a SQL database. 
+In this repository, you will find the 'ELT_Mini_Project_KRichards_CReynolds.ipynb' file containing the Python code to extract and transform the raw Excel files into useable DataFrames (see Resouces folder). To complete these tasks, we broke up the requirements into DataFrame deliverables: Categories, Subcategories, Campaigns, and Contacts - which later became our tables in a relational database. 
 
 We were able to transform each of the raw files into Pandas DataFrames with logical column names and organization that would be easily understandable by another analyst to pick up and use. By using Pandas and NumPy libraries, the DataFrames are then prepared to be loaded into the SQL database (we used PostgreSQL).
 
