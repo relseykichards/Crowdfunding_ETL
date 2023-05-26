@@ -56,7 +56,6 @@ CREATE TABLE campaign (
      )
 );
 
-DROP TABLE campaign;
 
 ALTER TABLE campaign ADD CONSTRAINT "fk_Campaign_contact_id" FOREIGN KEY("contact_id")
 REFERENCES contact ("contact_id");
