@@ -3,7 +3,9 @@
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 
-CREATE TABLE "Contact" (
+CREATE DATABASE crowdfunding_db;
+
+CREATE TABLE contact (
     "contact_id" int   NOT NULL,
     "first_name" text   NOT NULL,
     "last_name" text   NOT NULL,
@@ -13,47 +15,59 @@ CREATE TABLE "Contact" (
      )
 );
 
-CREATE TABLE "Category" (
-    "category_id" int   NOT NULL,
-    "category" int   NOT NULL,
+
+
+CREATE TABLE category (
+    "category_id" text   NOT NULL,
+    "category" text   NOT NULL,
     CONSTRAINT "pk_Category" PRIMARY KEY (
         "category_id"
      )
 );
 
-CREATE TABLE "Subcategory" (
-    "subcategory_id" int   NOT NULL,
+
+
+CREATE TABLE subcategory (
+    "subcategory_id" text   NOT NULL,
     "subcategory" text   NOT NULL,
     CONSTRAINT "pk_Subcategory" PRIMARY KEY (
         "subcategory_id"
      )
 );
 
-CREATE TABLE "Campaign" (
+
+CREATE TABLE campaign (
     "cf_id" int   NOT NULL,
     "contact_id" int   NOT NULL,
     "company_name" text   NOT NULL,
     "description" text   NOT NULL,
-    "goal" float   NOT NULL,
-    "pledged" float   NOT NULL,
+    "goal" real   NOT NULL,
+    "pledged" real   NOT NULL,
+	"outcome" text NOT NULL,
     "backers_count" int   NOT NULL,
     "country" text   NOT NULL,
     "currency" text   NOT NULL,
     "launch_date" date   NOT NULL,
     "end_date" date   NOT NULL,
-    "category_id" int   NOT NULL,
-    "subcategory_id" int   NOT NULL,
+    "category_id" text   NOT NULL,
+    "subcategory_id" text   NOT NULL,
     CONSTRAINT "pk_Campaign" PRIMARY KEY (
         "cf_id"
      )
 );
 
-ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_contact_id" FOREIGN KEY("contact_id")
-REFERENCES "Contact" ("contact_id");
+DROP TABLE campaign;
 
-ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_category_id" FOREIGN KEY("category_id")
-REFERENCES "Category" ("category_id");
+ALTER TABLE campaign ADD CONSTRAINT "fk_Campaign_contact_id" FOREIGN KEY("contact_id")
+REFERENCES contact ("contact_id");
 
-ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_subcategory_id" FOREIGN KEY("subcategory_id")
-REFERENCES "Subcategory" ("subcategory_id");
+ALTER TABLE campaign ADD CONSTRAINT "fk_Campaign_category_id" FOREIGN KEY("category_id")
+REFERENCES category ("category_id");
 
+ALTER TABLE campaign ADD CONSTRAINT "fk_Campaign_subcategory_id" FOREIGN KEY("subcategory_id")
+REFERENCES subcategory ("subcategory_id");
+
+SELECT * FROM contact; 
+SELECT * FROM category;
+SELECT * FROM subcategory;
+SELECT * FROM campaign;
